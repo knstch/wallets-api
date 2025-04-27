@@ -9,6 +9,7 @@ service Wallets {
 enum Blockchain {
   UNKNOWN = 0;
   POLYGON = 1;
+  BSC = 2;
 }
 
 message GetBalanceRequest {
