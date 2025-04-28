@@ -21,58 +21,58 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-type Blockchain int32
+type Network int32
 
 const (
-	Blockchain_UNKNOWN Blockchain = 0
-	Blockchain_POLYGON Blockchain = 1
-	Blockchain_BSC     Blockchain = 2
+	Network_UNKNOWN Network = 0
+	Network_POLYGON Network = 1
+	Network_BSC     Network = 2
 )
 
-// Enum value maps for Blockchain.
+// Enum value maps for Network.
 var (
-	Blockchain_name = map[int32]string{
+	Network_name = map[int32]string{
 		0: "UNKNOWN",
 		1: "POLYGON",
 		2: "BSC",
 	}
-	Blockchain_value = map[string]int32{
+	Network_value = map[string]int32{
 		"UNKNOWN": 0,
 		"POLYGON": 1,
 		"BSC":     2,
 	}
 )
 
-func (x Blockchain) Enum() *Blockchain {
-	p := new(Blockchain)
+func (x Network) Enum() *Network {
+	p := new(Network)
 	*p = x
 	return p
 }
 
-func (x Blockchain) String() string {
+func (x Network) String() string {
 	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
 }
 
-func (Blockchain) Descriptor() protoreflect.EnumDescriptor {
+func (Network) Descriptor() protoreflect.EnumDescriptor {
 	return file_wallets_public_proto_enumTypes[0].Descriptor()
 }
 
-func (Blockchain) Type() protoreflect.EnumType {
+func (Network) Type() protoreflect.EnumType {
 	return &file_wallets_public_proto_enumTypes[0]
 }
 
-func (x Blockchain) Number() protoreflect.EnumNumber {
+func (x Network) Number() protoreflect.EnumNumber {
 	return protoreflect.EnumNumber(x)
 }
 
-// Deprecated: Use Blockchain.Descriptor instead.
-func (Blockchain) EnumDescriptor() ([]byte, []int) {
+// Deprecated: Use Network.Descriptor instead.
+func (Network) EnumDescriptor() ([]byte, []int) {
 	return file_wallets_public_proto_rawDescGZIP(), []int{0}
 }
 
 type GetBalanceRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Blockchain    Blockchain             `protobuf:"varint,1,opt,name=blockchain,proto3,enum=wallets.private.Blockchain" json:"blockchain,omitempty"`
+	Network       Network                `protobuf:"varint,1,opt,name=network,proto3,enum=wallets.private.Network" json:"network,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -107,11 +107,11 @@ func (*GetBalanceRequest) Descriptor() ([]byte, []int) {
 	return file_wallets_public_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *GetBalanceRequest) GetBlockchain() Blockchain {
+func (x *GetBalanceRequest) GetNetwork() Network {
 	if x != nil {
-		return x.Blockchain
+		return x.Network
 	}
-	return Blockchain_UNKNOWN
+	return Network_UNKNOWN
 }
 
 type GetBalanceResponse struct {
@@ -222,19 +222,16 @@ var File_wallets_public_proto protoreflect.FileDescriptor
 
 const file_wallets_public_proto_rawDesc = "" +
 	"\n" +
-	"\x14wallets.public.proto\x12\x0fwallets.private\"P\n" +
-	"\x11GetBalanceRequest\x12;\n" +
-	"\n" +
-	"blockchain\x18\x01 \x01(\x0e2\x1b.wallets.private.BlockchainR\n" +
-	"blockchain\"j\n" +
+	"\x14wallets.public.proto\x12\x0fwallets.private\"G\n" +
+	"\x11GetBalanceRequest\x122\n" +
+	"\anetwork\x18\x01 \x01(\x0e2\x18.wallets.private.NetworkR\anetwork\"j\n" +
 	"\x12GetBalanceResponse\x12$\n" +
 	"\rnativeBalance\x18\x01 \x01(\tR\rnativeBalance\x12.\n" +
 	"\x06tokens\x18\x02 \x03(\v2\x16.wallets.private.TokenR\x06tokens\"9\n" +
 	"\x05Token\x12\x16\n" +
 	"\x06symbol\x18\x01 \x01(\tR\x06symbol\x12\x18\n" +
-	"\abalance\x18\x02 \x01(\tR\abalance*/\n" +
-	"\n" +
-	"Blockchain\x12\v\n" +
+	"\abalance\x18\x02 \x01(\tR\abalance*,\n" +
+	"\aNetwork\x12\v\n" +
 	"\aUNKNOWN\x10\x00\x12\v\n" +
 	"\aPOLYGON\x10\x01\x12\a\n" +
 	"\x03BSC\x10\x022`\n" +
@@ -257,13 +254,13 @@ func file_wallets_public_proto_rawDescGZIP() []byte {
 var file_wallets_public_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_wallets_public_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
 var file_wallets_public_proto_goTypes = []any{
-	(Blockchain)(0),            // 0: wallets.private.Blockchain
+	(Network)(0),               // 0: wallets.private.Network
 	(*GetBalanceRequest)(nil),  // 1: wallets.private.GetBalanceRequest
 	(*GetBalanceResponse)(nil), // 2: wallets.private.GetBalanceResponse
 	(*Token)(nil),              // 3: wallets.private.Token
 }
 var file_wallets_public_proto_depIdxs = []int32{
-	0, // 0: wallets.private.GetBalanceRequest.blockchain:type_name -> wallets.private.Blockchain
+	0, // 0: wallets.private.GetBalanceRequest.network:type_name -> wallets.private.Network
 	3, // 1: wallets.private.GetBalanceResponse.tokens:type_name -> wallets.private.Token
 	1, // 2: wallets.private.Wallets.GetBalance:input_type -> wallets.private.GetBalanceRequest
 	2, // 3: wallets.private.Wallets.GetBalance:output_type -> wallets.private.GetBalanceResponse
